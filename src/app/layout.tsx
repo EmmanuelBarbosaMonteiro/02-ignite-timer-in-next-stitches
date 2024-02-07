@@ -3,6 +3,8 @@ import { Roboto } from 'next/font/google'
 import React from 'react'
 import { getCssText } from '@/styles'
 import { globalStyles } from '@/styles/global'
+import { Header } from '@/components/header/Header'
+import { LayoutContainer } from './styles'
 
 export const metadata: Metadata = {
   title: 'Ignite Timer',
@@ -10,7 +12,7 @@ export const metadata: Metadata = {
 }
 
 const robotoFont = Roboto({
-  weight: ['100', '300', '400', '500', '700', '900'],
+  weight: ['400', '700'],
   subsets: ['latin'],
   variable: '--font-roboto',
   style: 'normal',
@@ -25,13 +27,16 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${robotoFont.variable}`}>
       <body>
-        {children}
-
         <style
           dangerouslySetInnerHTML={{
             __html: `${getCssText()} ${globalStyles()}`,
           }}
         />
+
+        <LayoutContainer>
+          <Header />
+          {children}
+        </LayoutContainer>
       </body>
     </html>
   )
