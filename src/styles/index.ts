@@ -32,9 +32,5 @@ export const {
 
       yellow500: '#FBA94C',
     },
-
-    fonts: {
-      roboto: 'var(--font-roboto)',
-    },
   },
 })
